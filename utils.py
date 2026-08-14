@@ -1,4 +1,5 @@
 import json
+import sqlite3
 
 def load_data(name):
     file_path = f"static/data/{name}"

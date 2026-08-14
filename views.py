@@ -1,21 +1,27 @@
 from utils import load_data, load_template
 import json
+import sqlite3
+
 def index():
+    conn = sqlite3.connect("banco.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM note")
+    dados = cursor.fetchall()
+    
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data('notes.json')
+        note_template.format(title=linha[1], details=linha[2])
+        for linha in dados
     ]
     notes = '\n'.join(notes_li)
 
     return load_template('index.html').format(notes=notes)
 
 def submit(title, details):
-    with open("static/data/notes.json", "r", encoding="utf-8") as arquivo:
-        dados = json.load(arquivo)
-
-    dados.append({'titulo':title,'detalhes': details})
-    print(dados)
-
-    with open("static/data/notes.json", "w", encoding="utf-8") as arquivo:
-        json.dump(dados, arquivo)
+    conn = sqlite3.connect("banco.db")
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO note (nome,detalhes) values (?,?)",(title,details))
+    conn.commit()
+    id_usuario = cursor.lastrowid
+    conn.close()
+    
