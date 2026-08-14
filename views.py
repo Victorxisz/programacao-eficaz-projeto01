@@ -20,7 +20,7 @@ def index():
 def submit(title, details):
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO note (title,details) values (?,?)",(title,details))
+    cursor.execute("INSERT INTO note (title,content) values (?,?)",(title,details))
     conn.commit()
     id_usuario = cursor.lastrowid
     conn.close()
