@@ -1,13 +1,27 @@
 <li>
-    <form action="/delete" method="POST">
-    <input type="hidden" name="id" value="{id}">
+    <div class="note-actions">
+        <form action="/update" method="GET">
+            <input type="hidden" name="id" value="{id}">
 
-    <button
-        type="submit"
-        class="btn-note-close position-absolute top-0 end-0 m-3"
-        aria-label="Excluir">
-    </button>
-</form>
+            <button
+                name="edit_button"
+                content="editar"
+                type="submit"
+                class="btn-edit"
+                aria-label="Editar">
+                <i class="bi bi-pencil"></i>
+            </button>
+        </form> 
+        <form action="/delete" method="POST">
+            <input type="hidden" name="id" value="{id}">
+
+            <button
+                type="submit"
+                class="btn-note-close position-absolute top-0 end-0 m-3"
+                aria-label="Excluir">
+            </button>
+        </form>
+    </div>
     <h3>{title}</h3>
     <p>{details}</p>
 </li>

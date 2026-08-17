@@ -16,7 +16,6 @@ def index():
 def submit_form():
     titulo = request.form.get('titulo')  # Obtém o valor do campo 'titulo'
     detalhes = request.form.get('detalhes')  # Obtém o valor do campo 'detalhes'
-
     views.submit(titulo, detalhes)
     return redirect('/')
 
@@ -27,5 +26,20 @@ def delete_note():
     views.delete(id=note_id)
     return redirect('/')
 
+@app.route("/update", methods=["GET"])
+def edit_note():
+    note_id=request.args.get("id")
+    note=views.get_note(note_id)
+    return render_template_string(views.edit(note))
+
+@app.route("/update", methods=["POST"])
+def update_note():
+    note_id=request.form.get("id")
+    new_title = request.form.get("title")
+    new_content = request.form.get("content")
+    views.update(note_id, new_title, new_content)
+    return redirect("/")
+
 if __name__ == '__main__':
     app.run(debug=True)
+

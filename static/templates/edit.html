@@ -13,19 +13,20 @@
 <img
 class="logo" 
 src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}">
-<h1 class="logo-texto">Como o Post-it, mas com outro verbo</h1>
+<h1 class="logo-texto">Editar Anotação</h1>
 </header>
-  <form class="add_note" action="/submit" method="POST">
+  <form class="add_note" action="/update" method="POST">
+    <input type="hidden" name="id" value="{id}">
+
     <label for="titulo">Título</label>
-    <input id="titulo" type="text" name="titulo" required />
+        <input id="titulo" type="text" name="title" value="{title}" required />
+
     <label for="detalhes">Detalhes</label>
-    <input id="detalhes" name="detalhes" required />
-    <input class="btn-submit" type="submit" value="Adicionar nota" />
+        <input id="detalhes" name="content" value="{content}" required />
+        
+    <input class="btn-submit" type="submit" value="EDITAR" />
   </form>
 
-<ul>
-{notes}
-</ul>
 
 </body>
 </html>
