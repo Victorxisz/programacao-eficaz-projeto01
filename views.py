@@ -21,7 +21,6 @@ def submit(title, details):
     cursor = conn.cursor()
     cursor.execute("INSERT INTO note (title,content) values (?,?)",(title,details))
     conn.commit()
-    id_usuario = cursor.lastrowid
     conn.close()
 
 def delete(id):
@@ -43,5 +42,4 @@ def update(id, new_title, new_content):
     cursor = conn.cursor()
     cursor.execute("UPDATE note SET title = ?, content = ? WHERE id = ?",(new_title, new_content, id))
     conn.commit()
-    id_usuario = cursor.lastrowid
     conn.close()
