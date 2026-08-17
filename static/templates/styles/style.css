@@ -71,7 +71,7 @@ header {
   color: #18181b;
 }
 
-form {
+.add_note {
   display: grid;
   grid-template-columns: 1fr 1.4fr auto;
   gap: 6px 12px;
@@ -148,8 +148,7 @@ textarea {
   resize: vertical;
 }
 
-input[type="submit"],
-button {
+.btn-submit {
   min-height: 46px;
   padding: 0 20px;
   border: 0;
@@ -163,15 +162,43 @@ button {
   box-shadow: 0 10px 18px rgba(37, 99, 235, 0.22);
 }
 
-input[type="submit"]:hover,
-button:hover {
+.btn-submit:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
 }
 
-input[type="submit"]:active,
-button:active {
+.btn-submit:active {
   transform: translateY(0);
+}
+
+.btn-note-close {
+  display: grid;
+  width: 30px;
+  min-height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(32, 33, 36, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
+  font: 700 1.25rem/1 Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.btn-note-close::before {
+  content: "×";
+}
+
+.btn-note-close:hover {
+  background: #ef4444;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.05);
+}
+
+.btn-note-close:active {
+  transform: rotate(90deg) scale(0.96);
 }
 
 ul {
@@ -260,9 +287,13 @@ p {
     grid-row: auto;
   }
 
-  input[type="submit"],
-  button {
+  .btn-submit,
+  .btn-note-close {
     width: 100%;
+  }
+
+  .btn-note-close {
+    width: 30px;
   }
 }
 

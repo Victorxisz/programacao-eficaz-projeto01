@@ -10,7 +10,7 @@ def index():
     
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=linha[1], details=linha[2])
+        note_template.format(title=linha[1], details=linha[2], id=linha[0])
         for linha in dados
     ]
     notes = '\n'.join(notes_li)
@@ -23,5 +23,13 @@ def submit(title, details):
     cursor.execute("INSERT INTO note (title,content) values (?,?)",(title,details))
     conn.commit()
     id_usuario = cursor.lastrowid
+    conn.close()
+
+def delete(id):
+    print(id)
+    conn = sqlite3.connect("banco.db")
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM note WHERE id=?",(id,))
+    conn.commit()
     conn.close()
     

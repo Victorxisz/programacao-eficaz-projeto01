@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>Get-it</title>
 <link rel="stylesheet" href="static/templates/styles/style.css">
+<link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 </head>
 <body>
 <header>
@@ -12,12 +16,12 @@ class="logo"
 src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}">
 <h1 class="logo-texto">Como o Post-it, mas com outro verbo</h1>
 </header>
-  <form action="/submit" method="POST">
+  <form class="add_note" action="/submit" method="POST">
     <label for="titulo">Título</label>
     <input id="titulo" type="text" name="titulo" required />
     <label for="detalhes">Detalhes</label>
     <input id="detalhes" name="detalhes" required />
-    <input type="submit" />
+    <input class="btn-submit" type="submit" value="Adicionar nota" />
   </form>
 
 <ul>

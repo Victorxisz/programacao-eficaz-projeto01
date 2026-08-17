@@ -1,4 +1,13 @@
 <li>
+    <form action="/delete" method="POST">
+    <input type="hidden" name="id" value="{id}">
+
+    <button
+        type="submit"
+        class="btn-note-close position-absolute top-0 end-0 m-3"
+        aria-label="Excluir">
+    </button>
+</form>
     <h3>{title}</h3>
     <p>{details}</p>
 </li>
