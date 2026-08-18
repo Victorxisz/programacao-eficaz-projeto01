@@ -26,15 +26,13 @@ def delete_note():
     views.delete(id=note_id)
     return redirect('/')
 
-@app.route("/update", methods=["GET"])
-def edit_note():
-    note_id=request.args.get("id")
+@app.route("/update/<int:note_id>", methods=["GET"])
+def edit_note(note_id):
     note=views.get_note(note_id)
     return render_template_string(views.edit(note))
 
-@app.route("/update", methods=["POST"])
-def update_note():
-    note_id=request.form.get("id")
+@app.route("/update/<int:note_id>", methods=["POST"])
+def update_note(note_id):
     new_title = request.form.get("title")
     new_content = request.form.get("content")
     views.update(note_id, new_title, new_content)
