@@ -20,10 +20,11 @@ src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}">
         <input id="titulo" type="text" name="titulo" value="{title}" required />
     <label for="detalhes">Detalhes</label>
         <input id="detalhes" name="detalhes" value="{content}" required /> 
-    <input class="btn-submit" type="submit" value="Salvar"/>
+    <label for="envio"></label>
+    <button id="save-btn" class="btn-submit" type="submit">Salvar</button>
   </form>
   <form class="cancel_note" action="/" method="GET">
-    <input id="cancel" name="edit_cancel" class="btn-submit" type="submit" value="Cancelar" />
+    <input id="cancel-btn" name="edit_cancel" class="btn-submit" type="submit" value="Cancelar"/>
   </form>
 
 </body>

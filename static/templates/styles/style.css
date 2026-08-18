@@ -75,11 +75,11 @@ header {
   display: grid;
   grid-template-columns: 1fr 1.4fr auto;
   gap: 6px 12px;
-  align-items: end;
+  align-items:end;
   margin-bottom: 34px;
   padding: 18px;
   border: 1px solid rgba(229, 216, 154, 0.95);
-  border-radius: 8px;
+  border-radius: 8px; 
   background: rgba(255, 255, 255, 0.74);
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
@@ -98,8 +98,7 @@ header {
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
 }
-
-#cancel {
+#cancel-btn {
   background-color: #ef4444;
 }
 
@@ -178,6 +177,7 @@ textarea {
   cursor: pointer;
   transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
   box-shadow: 0 10px 18px rgba(37, 99, 235, 0.22);
+
 }
 
 .btn-submit:hover {
