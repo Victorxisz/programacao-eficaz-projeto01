@@ -16,16 +16,15 @@ src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}">
 <h1 class="logo-texto">Editar Anotação</h1>
 </header>
   <form class="add_note" action="/update/{id}" method="POST">
-
     <label for="titulo">Título</label>
         <input id="titulo" type="text" name="titulo" value="{title}" required />
-
     <label for="detalhes">Detalhes</label>
-        <input id="detalhes" name="detalhes" value="{content}" required />
-        
+        <input id="detalhes" name="detalhes" value="{content}" required /> 
     <input class="btn-submit" type="submit" value="EDITAR" />
   </form>
-
+  <form class="cancel_note" action="/" method="GET">
+    <input id="cancel" name="edit_cancel" class="btn-submit" type="submit" value="Cancelar" />
+  </form>
 
 </body>
 </html>

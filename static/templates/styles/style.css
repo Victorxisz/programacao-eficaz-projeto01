@@ -85,6 +85,24 @@ header {
   backdrop-filter: blur(10px);
 }
 
+.cancel_note {
+  display: flex;
+  grid-template-columns: 1fr 1.4fr auto;
+  gap: 6px 12px;
+  align-items: end;
+  margin-bottom: 34px;
+  padding: 18px;
+  border: 1px solid rgba(229, 216, 154, 0.95);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+#cancel {
+  background-color: #ef4444;
+}
+
 label[for="titulo"] {
   grid-column: 1;
   grid-row: 1;
