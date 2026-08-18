@@ -33,8 +33,8 @@ def edit_note(note_id):
 
 @app.route("/update/<int:note_id>", methods=["POST"])
 def update_note(note_id):
-    new_title = request.form.get("title")
-    new_content = request.form.get("content")
+    new_title = request.form.get("titulo")
+    new_content = request.form.get("detalhes")
     views.update(note_id, new_title, new_content)
     return redirect("/")
 
