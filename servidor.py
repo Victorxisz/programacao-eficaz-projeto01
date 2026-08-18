@@ -38,6 +38,9 @@ def update_note(note_id):
     views.update(note_id, new_title, new_content)
     return redirect("/")
 
+@app.route("/markdown/<int:note_id>", methods=['POST'])
+def markdown_note(note_id):
+    views.markdown(note_id)
+    return redirect("/")
 if __name__ == '__main__':
     app.run(debug=True)
-

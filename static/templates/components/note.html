@@ -1,5 +1,15 @@
 <li>
     <div class="note-actions">
+        <form action="/markdown/{id}" method="POST">
+            <input type="hidden" name="id" value="{id}">
+            <button
+                name = "markdown"
+                type="submit"
+                class="btn-edit"
+                aria-label="Excluir">
+                <i class="bi {markdown_icon}"></i>
+            </button>
+        </form>
         <form action="/update/{id}" method="GET">
             <button
                 name="edit_button"
@@ -20,6 +30,7 @@
                 aria-label="Excluir">
             </button>
         </form>
+        
     </div>
     <h3>{title}</h3>
     <p>{details}</p>

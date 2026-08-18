@@ -4,12 +4,18 @@ import sqlite3
 def index():
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM note")
+    cursor.execute("SELECT * FROM note ORDER BY markdown DESC")
     dados = cursor.fetchall()
     
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=linha[1], details=linha[2], id=linha[0])
+        note_template.format(
+            title=linha[1],
+            details=linha[2],
+            id=linha[0], 
+            markdown_icon=("bi-bookmark-fill" 
+                            if linha[3]==1
+                            else "bi-bookmark"))
         for linha in dados
     ]
     notes = '\n'.join(notes_li)
@@ -41,5 +47,12 @@ def update(id, new_title, new_content):
     conn = sqlite3.connect("banco.db")
     cursor = conn.cursor()
     cursor.execute("UPDATE note SET title = ?, content = ? WHERE id = ?",(new_title, new_content, id))
+    conn.commit()
+    conn.close()
+
+def markdown(note_id):
+    conn = sqlite3.connect("banco.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE note SET markdown = NOT markdown WHERE id= ?", (note_id,))
     conn.commit()
     conn.close()
