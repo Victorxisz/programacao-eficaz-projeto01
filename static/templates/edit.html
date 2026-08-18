@@ -18,10 +18,10 @@ src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}">
   <form class="add_note" action="/update/{id}" method="POST">
 
     <label for="titulo">Título</label>
-        <input id="titulo" type="text" name="title" value="{title}" required />
+        <input id="titulo" type="text" name="titulo" value="{title}" required />
 
     <label for="detalhes">Detalhes</label>
-        <input id="detalhes" name="content" value="{content}" required />
+        <input id="detalhes" name="detalhes" value="{content}" required />
         
     <input class="btn-submit" type="submit" value="EDITAR" />
   </form>
